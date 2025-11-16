@@ -99,6 +99,9 @@ def chunk_text(text: str, chunk_size: int = 800, overlap: int = 150) -> List[str
 class Question(BaseModel):
     question: str
 
+@app.get("/")
+async def root():
+    return {"RAG PDF Q&A API is running."}
 # ------------------------------------------------------------
 # 🔹 API Endpoints
 # ------------------------------------------------------------
@@ -220,7 +223,3 @@ async def clear_pdf():
     pdf_index = None
     pdf_filename = ""
     return {"message": "Cleared"}
-
-# Vercel serverless handler
-from mangum import Mangum
-handler = Mangum(app, lifespan="off")

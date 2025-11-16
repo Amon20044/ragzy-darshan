@@ -7,4 +7,3 @@ numpy
 together
 openai
 pydantic
-mangum
